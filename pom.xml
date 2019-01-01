@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tsufeki</groupId>
-    <artifactId>tsufeki.tenkawa-php</artifactId>
+    <groupId>eu.tsufeki</groupId>
+    <artifactId>eu.tsufeki.tenkawaphp.parent</artifactId>
     <version>0.4.1-SNAPSHOT</version>
-    <packaging>eclipse-plugin</packaging>
+    <packaging>pom</packaging>
 
     <name>eclipse-tenkawa-php</name>
     <url>https://github.com/tsufeki/eclipse-tenkawa-php</url>
@@ -75,4 +75,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <modules>
+        <module>eu.tsufeki.tenkawaphp.editor</module>
+        <module>eu.tsufeki.tenkawaphp.languageserver</module>
+        <module>eu.tsufeki.tenkawaphp.syntax</module>
+        <module>eu.tsufeki.tenkawaphp.feature</module>
+        <module>eu.tsufeki.tenkawaphp.repository</module>
+    </modules>
 </project>

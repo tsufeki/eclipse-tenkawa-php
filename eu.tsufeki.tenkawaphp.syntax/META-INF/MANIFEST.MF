@@ -1,17 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tenkawa PHP
-Bundle-SymbolicName: tsufeki.tenkawa-php;singleton:=true
+Bundle-Name: Tenkawa PHP Syntax Highlighting
+Bundle-SymbolicName: eu.tsufeki.tenkawaphp.syntax;singleton:=true
 Bundle-Version: 0.4.1.qualifier
-Bundle-Activator: tsufeki.tenkawaphp.TenkawaPhpPlugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.jface.text,
- org.eclipse.lsp4e;bundle-version="0.8.0",
  org.eclipse.tm4e.core,
  org.eclipse.tm4e.ui,
  org.eclipse.ui,
- org.eclipse.ui.genericeditor
-Automatic-Module-Name: tsufeki.tenkawaphp
+ org.eclipse.ui.genericeditor,
+ eu.tsufeki.tenkawaphp.editor
+Automatic-Module-Name: eu.tsufeki.tenkawaphp.syntax
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version>=1.11))"

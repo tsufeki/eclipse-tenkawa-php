@@ -1,4 +1,4 @@
-package tsufeki.tenkawaphp;
+package eu.tsufeki.tenkawaphp.languageserver;
 
 import java.io.File;
 import java.io.IOException;

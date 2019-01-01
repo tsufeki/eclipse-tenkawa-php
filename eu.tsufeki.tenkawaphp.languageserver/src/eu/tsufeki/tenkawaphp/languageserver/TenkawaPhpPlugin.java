@@ -1,4 +1,4 @@
-package tsufeki.tenkawaphp;
+package eu.tsufeki.tenkawaphp.languageserver;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -7,7 +7,7 @@ import org.osgi.framework.BundleContext;
 
 public class TenkawaPhpPlugin extends AbstractUIPlugin {
 
-    public static final String PLUGIN_ID = "tsufeki.tenkawa-php";
+    public static final String PLUGIN_ID = "eu.tsufeki.tenkawaphp.languageserver";
     private static TenkawaPhpPlugin plugin;
     private BundleContext context;
 

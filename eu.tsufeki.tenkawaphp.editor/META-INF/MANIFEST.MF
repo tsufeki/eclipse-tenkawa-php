@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tenkawa PHP Editor
+Bundle-SymbolicName: eu.tsufeki.tenkawaphp.editor;singleton:=true
+Bundle-Version: 0.4.1.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.ui.genericeditor
+Automatic-Module-Name: eu.tsufeki.tenkawaphp.editor
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version>=1.11))"

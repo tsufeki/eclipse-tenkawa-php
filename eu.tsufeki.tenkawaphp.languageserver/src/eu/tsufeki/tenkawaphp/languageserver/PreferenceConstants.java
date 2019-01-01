@@ -1,4 +1,4 @@
-package tsufeki.tenkawaphp;
+package eu.tsufeki.tenkawaphp.languageserver;
 
 public class PreferenceConstants {
 

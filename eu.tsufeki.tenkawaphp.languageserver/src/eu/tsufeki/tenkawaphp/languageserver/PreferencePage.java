@@ -1,4 +1,4 @@
-package tsufeki.tenkawaphp;
+package eu.tsufeki.tenkawaphp.languageserver;
 
 import org.eclipse.jface.preference.*;
 import org.eclipse.ui.IWorkbenchPreferencePage;

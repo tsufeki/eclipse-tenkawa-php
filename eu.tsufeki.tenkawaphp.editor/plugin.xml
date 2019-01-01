@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+    <extension
+        point="org.eclipse.core.contenttype.contentTypes">
+        <content-type
+            id="eu.tsufeki.tenkawaphp.php"
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="php"
+            name="PHP"
+            priority="normal">
+        </content-type>
+    </extension>
+
+    <extension
+        point="org.eclipse.ui.editors">
+        <editorContentTypeBinding
+            contentTypeId="eu.tsufeki.tenkawaphp.php"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+        </editorContentTypeBinding>
+    </extension>
+
+</plugin>

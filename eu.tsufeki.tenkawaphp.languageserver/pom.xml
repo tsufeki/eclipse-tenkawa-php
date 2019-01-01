@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.tsufeki</groupId>
+        <artifactId>eu.tsufeki.tenkawaphp.parent</artifactId>
+        <version>0.4.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>eu.tsufeki.tenkawaphp.languageserver</artifactId>
+    <packaging>eclipse-plugin</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec executable="composer">
+                                    <arg value="install" />
+                                    <arg value="--no-dev" />
+                                    <arg value="--no-interaction" />
+                                    <arg value="--classmap-authoritative" />
+                                    <arg value="--prefer-dist" />
+                                </exec>
+                                <exec executable="php">
+                                    <arg value="./vendor/bin/tenkawa.php" />
+                                    <arg value="--build-index" />
+                                    <arg value="--log-stderr" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

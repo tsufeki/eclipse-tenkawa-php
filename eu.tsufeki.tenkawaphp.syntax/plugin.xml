@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+    <extension
+        point="org.eclipse.ui.genericeditor.presentationReconcilers">
+        <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="eu.tsufeki.tenkawaphp.php">
+        </presentationReconciler>
+    </extension>
+
+    <extension
+        point="org.eclipse.tm4e.registry.grammars">
+        <grammar
+            path="syntaxes/php.tmLanguage.json"
+            scopeName="text.html.php">
+        </grammar>
+        <scopeNameContentTypeBinding
+            contentTypeId="eu.tsufeki.tenkawaphp.php"
+            scopeName="text.html.php">
+        </scopeNameContentTypeBinding>
+    </extension>
+
+</plugin>

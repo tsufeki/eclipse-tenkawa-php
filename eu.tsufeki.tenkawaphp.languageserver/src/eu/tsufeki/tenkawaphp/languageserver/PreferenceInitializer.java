@@ -1,4 +1,4 @@
-package tsufeki.tenkawaphp;
+package eu.tsufeki.tenkawaphp.languageserver;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.core.runtime.preferences.DefaultScope;
