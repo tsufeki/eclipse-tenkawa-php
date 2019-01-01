@@ -11,7 +11,7 @@
         </server>
         <contentTypeMapping
             contentType="eu.tsufeki.tenkawaphp.php"
-            id="tsufeki.tenkawaphp.languageserver">
+            id="eu.tsufeki.tenkawaphp.languageserver">
         </contentTypeMapping>
     </extension>
 
