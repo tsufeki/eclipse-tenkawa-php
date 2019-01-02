@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tenkawa PHP Editor
 Bundle-SymbolicName: eu.tsufeki.tenkawaphp.editor;singleton:=true
 Bundle-Version: 0.4.1.qualifier
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.contenttype,
  org.eclipse.ui,
  org.eclipse.ui.genericeditor
 Automatic-Module-Name: eu.tsufeki.tenkawaphp.editor

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="eu.tsufeki.tenkawaphp.feature" />
+    <feature id="eu.tsufeki.tenkawaphp.feature">
+        <category name="programming.languages"/>
+    </feature>
+    <category-def name="programming.languages" label="Programming Languages"/>
 </site>

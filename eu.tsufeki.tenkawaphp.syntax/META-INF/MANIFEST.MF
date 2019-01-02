@@ -3,10 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tenkawa PHP Syntax Highlighting
 Bundle-SymbolicName: eu.tsufeki.tenkawaphp.syntax;singleton:=true
 Bundle-Version: 0.4.1.qualifier
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.tm4e.core,
- org.eclipse.tm4e.ui,
- org.eclipse.ui,
+Require-Bundle: org.eclipse.tm4e.ui,
+ org.eclipse.tm4e.registry,
  org.eclipse.ui.genericeditor,
  eu.tsufeki.tenkawaphp.editor
 Automatic-Module-Name: eu.tsufeki.tenkawaphp.syntax

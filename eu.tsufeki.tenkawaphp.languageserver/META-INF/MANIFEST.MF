@@ -5,7 +5,6 @@ Bundle-SymbolicName: eu.tsufeki.tenkawaphp.languageserver;singleton:=true
 Bundle-Version: 0.4.1.qualifier
 Bundle-Activator: eu.tsufeki.tenkawaphp.languageserver.TenkawaPhpPlugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.jface.text,
  org.eclipse.lsp4e;bundle-version="0.8.0",
  org.eclipse.ui,
  eu.tsufeki.tenkawaphp.editor
