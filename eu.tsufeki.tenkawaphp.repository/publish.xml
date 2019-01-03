@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project name="project">
+    <property environment="env"/>
+
+    <property name="bintray.user" value="${env.BINTRAY_USER}"/>
+    <property name="bintray.apikey" value="${env.BINTRAY_APIKEY}"/>
+    <property name="bintray.owner" value="${env.BINTRAY_OWNER}"/>
+    <property name="bintray.repository" value="${env.BINTRAY_REPOSITORY}"/>
+    <property name="bintray.package" value="${env.BINTRAY_PACKAGE}"/>
+    <property name="bintray.subpath" value="${env.BINTRAY_SUBPATH}"/>
+
+    <property name="bintray.path" value="${bintray.owner}/${bintray.repository}/${bintray.package}/${bintray.subpath}"/>
+    <property name="bintray.url" value="https://dl.bintray.com/${bintray.path}"/>
+    <property name="bintray.url.upload" value="https://api.bintray.com/content/${bintray.path}"/>
+
+    <target name="download-repository">
+        <mkdir dir="${repository.location}"/>
+
+        <exec executable="curl" failonerror="false">
+            <arg value="-fsSL"/>
+            <arg value="${bintray.url}/compositeArtifacts.xml"/>
+            <arg value="-o"/>
+            <arg value="${repository.location}/compositeArtifacts.xml"/>
+        </exec>
+
+        <exec executable="curl" failonerror="false">
+            <arg value="-fsSL"/>
+            <arg value="${bintray.url}/compositeContent.xml"/>
+            <arg value="-o"/>
+            <arg value="${repository.location}/compositeContent.xml"/>
+        </exec>
+    </target>
+
+    <target name="upload-repository">
+        <apply executable="curl" parallel="false" relative="true" addsourcefile="false" verbose="true" failonerror="true">
+            <arg value="-XPUT" />
+            <targetfile />
+
+            <fileset dir="${repository.location}" />
+
+            <compositemapper>
+                <mergemapper to="-fsS" />
+                <mergemapper to="-T" />
+                <globmapper from="*" to="${repository.location}/*" />
+                <mergemapper to="-u${bintray.user}:${bintray.apikey}" />
+                <globmapper from="*" to="${bintray.url.upload}/*;bt_package=${bintray.package};bt_version=${bintray.version};publish=1" />
+            </compositemapper>
+        </apply>
+
+        <apply executable="curl" parallel="false" relative="true" addsourcefile="false" verbose="true" failonerror="true">
+            <arg value="-XPUT" />
+            <targetfile />
+
+            <fileset dir="${repository.child.location}" />
+
+            <compositemapper>
+                <mergemapper to="-fsS" />
+                <mergemapper to="-T" />
+                <globmapper from="*" to="${repository.child.location}/*" />
+                <mergemapper to="-u${bintray.user}:${bintray.apikey}" />
+                <globmapper from="*" to="${bintray.url.upload}/${repository.child.dir}/*;bt_package=${bintray.package};bt_version=${bintray.version};publish=1" />
+            </compositemapper>
+        </apply>
+    </target>
+</project>

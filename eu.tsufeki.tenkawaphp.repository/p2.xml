@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project name="project">
+    <target name="p2.add">
+        <replaceregexp byline="true">
+            <regexp pattern="property name='p2.atomic.composite.loading' value='true'" />
+            <substitution expression="property name='p2.atomic.composite.loading' value='false'" />
+            <fileset dir="${repository.location}">
+                <include name="*.xml" />
+            </fileset>
+        </replaceregexp>
+
+        <p2.composite.repository>
+            <repository name="${repository.name}" location="${repository.location}" compressed="false"/>
+            <add>
+                <repository location="${repository.child.dir}"/>
+            </add>
+        </p2.composite.repository>
+        <echo file="${repository.location}/p2.index">version=1
+metadata.repository.factory.order=compositeContent.xml,\!
+artifact.repository.factory.order=compositeArtifacts.xml,\!
+</echo>
+
+        <replaceregexp byline="true">
+            <regexp pattern="property name='p2.atomic.composite.loading' value='false'" />
+            <substitution expression="property name='p2.atomic.composite.loading' value='true'" />
+            <fileset dir="${repository.location}">
+                <include name="*.xml" />
+            </fileset>
+        </replaceregexp>
+    </target>
+</project>

@@ -15,7 +15,8 @@
         <plugins>
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
+                <version>${maven-antrun-plugin-version}</version>
+
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>
@@ -31,7 +32,6 @@
                                 <exec executable="php">
                                     <arg value="./vendor/bin/tenkawa.php" />
                                     <arg value="--build-index" />
-                                    <arg value="--log-stderr" />
                                 </exec>
                             </target>
                         </configuration>

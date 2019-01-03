@@ -1,0 +1,28 @@
+language: php
+
+php:
+    - '7.1'
+
+env:
+    global:
+        - BINTRAY_USER=tsufeki
+        - BINTRAY_OWNER=tsufeki
+        - BINTRAY_REPOSITORY=tenkawa-php
+        - BINTRAY_PACKAGE=eclipse
+        - BINTRAY_SUBPATH=0
+        - secure: dSOXlWKG1k6nEBtXcsldvjzIXKzx1QYjT+5vodFaVWWZf8nH5YIhmCmVZfsTpPfFr6ksXYi7L2Bg9XGTRBnY7Q6TjkumpNT2GTmrmk0+d/5SGfvw/QIbRhWk2XM4ZzuyFBp2HppQrkYHDGo6yUz5TeKQGdGpY5vaWPiKFdRRenq/Q8FEaccc5ZDYrAhDhMrjgLsELummheW6kkzKRQDi3NBQYtsGjy0r13u8kZIQ7X31x70+bliGphHBEwUTGvM2/xkt8Udmak00SLvWHpTJXIq7iW7czL7W8llcaHX/JKOZGEs7TUolrJLCf0Z4jHNiRYzSpb23COcVeyksL4Cj696FYPXb2HJyYxqXR/twy7wwhD2ziWf3Fjz5h7JFwrrtBLdu4oKTLuvnlCNmUfPpg9jgpeyrJycEGzmt7HrSxc3VjHW0cTxetMjh/qvNopUQyy379APLYDtDUsNZDDjbT5fZhmxwrln/DxJRwDN1nk7a2LqUJZ/1f+E9G5mp5CWJY7DpNqhKL4ItOIlLuiJjKatNArSR5i1jC45IHUPQXMZfgq1pjn1Q7x6Y77R2hd5iL8aD9qgHpU+sO8DDzeD9sZIsA871vO/UIj+NGrTwZEofZEDKVWGHr0XzP4WCF1FONpQW1KpAy5PLUOHwmPi5ZN6RJ34BmRq+NucHTEbIN7o=
+
+cache:
+    directories:
+        - "$HOME/.m2/repository"
+        - "$HOME/.composer/cache"
+
+before_install:
+    - phpenv config-rm xdebug.ini
+
+install:
+    - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh && . ./install-jdk.sh -F 11 -L GPL
+
+script:
+    - if [ "$TRAVIS_PULL_REQUEST" = false -a -n "$TRAVIS_TAG" ]; then export MVN_OPTS=-Ppublish; fi
+    - mvn -B -V $MVN_OPTS clean verify
